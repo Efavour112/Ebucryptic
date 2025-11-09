@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Mastery - Learn to Trade Like a Pro | EbuCryptic.net </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            /* background-color: #f8f9fa; */
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            /* position: relative; */
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            /* content: ''; */
+            /* position: absolute; */
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            border-radius: 2px;
+            
+        }
+
+        .level-cal_info {
+            /* border: 1px solid blue !important; */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            /* transition: transform 0.3s ease; */
+            margin-bottom: 30px;
+            height: 100%;
+            background:inherit;
+        }
+        
+        .level-cal_info:hover {
+            /* transform: translateY(-10px); */
+        }
+        
+        .cal_info-header {
+            padding: 25px 20px;
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .topic-item {
+            padding: 15px;
+            border-left: 4px solid var(--secondary);
+            margin-bottom: 15px;
+            background: inherit;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .progress-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .progress-level {
+            margin-bottom: 25px;
+        }
+        
+        .progress-level h5 {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .resource-cal_info {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+            background:inherit;
+        }
+        
+        .resource-cal_info:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), #34495e);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .learning-path{
+            /* background: white; */
+            border-radius: 15px;
+            border:1px solid pink;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .path-step {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .path-content {
+            flex: 1;
+        }
+
+ 
+}
+</style>
+</head>
+<body>
+
+   <?php 
+        Require "nav.php";
+   ?>
+   <div class="menu-container">
+        <ul class="menu-list">
+            <li><a href="#beginner">Beginner</a></li>
+            <li><a href="#intermediate">Intermediate</a></li>
+            <li><a href="#advanced">Advanced</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 fw-bold mb-4">Master Trading From Zero to Professional</h1>
+                    <p class="lead mb-4">A structured learning path designed to take you from complete beginner to advanced trader with proven strategies and techniques.</p>
+                    <a href="#beginner" class="btn btn-primary btn-lg">Start Learning</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center mb-5">
+                    <h2 class="section-title d-inline-block">Your Trading Journey</h2>
+                    <p class="lead">Follow this structured path to build your trading skills step by step</p>
+                </div>
+            </div>
+            
+            <div class="learning-path ">
+                <div class="path-step">
+                    <div class="step-number">1</div>
+                    <div class="path-content">
+                        <h4>Beginner Level</h4>
+                        <p>Learn the fundamentals of trading, terminology, and basic concepts. Build a solid foundation before moving to more complex topics.</p>
+                    </div>
+                </div>
+                
+                <div class="path-step">
+                    <div class="step-number">2</div>
+                    <div class="path-content">
+                        <h4>Intermediate Level</h4>
+                        <p>Develop practical skills with technical analysis, risk management, and trading psychology. Start applying strategies in simulated environments.</p>
+                    </div>
+                </div>
+                
+                <div class="path-step">
+                    <div class="step-number">3</div>
+                    <div class="path-content">
+                        <h4>Advanced Level</h4>
+                        <p>Master advanced strategies, algorithmic trading, and portfolio management. Learn to adapt to changing market conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beginner Level -->
+    <section id="beginner" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center mb-5">
+                    <h2 class="section-title d-inline-block">Beginner Level</h2>
+                    <p class="lead">Build your trading foundation with these essential concepts</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="cal_info level-cal_info beginner" >
+                        <div class="cal_info-header text-center">
+                            <i class="bi bi-book me-2"></i> Trading Basics
+                        </div>
+                        <div class="cal_info-body">
+                            <div class="topic-item">
+                                <h6>What is Trading?</h6>
+                                <p class="mb-0">Understanding markets and how trading works</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Market Participants</h6>
+                                <p class="mb-0">Bulls, bears, and other market players</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Trading vs Investing</h6>
+                                <p class="mb-0">Key differences and when to use each approach</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="cal_info level-cal_info beginner">
+                        <div class="cal_info-header text-center">
+                            <i class="bi bi-bar-chart me-2"></i> Market Fundamentals
+                        </div>
+                        <div class="cal_info-body">
+                            <div class="topic-item">
+                                <h6>Market Types</h6>
+                                <p class="mb-0">Stocks, forex, crypto, and commodities</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Order Types</h6>
+                                <p class="mb-0">Market, limit, stop orders and when to use them</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Trading Sessions</h6>
+                                <p class="mb-0">Understanding market hours and sessions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="cal_info level-cal_info beginner">
+                        <div class="cal_info-header text-center">
+                            <i class="bi bi-calculator me-2"></i> Risk Management Basics
+                        </div>
+                        <div class="cal_info-body">
+                            <div class="topic-item">
+                                <h6>Position Sizing</h6>
+                                <p class="mb-0">How much to risk per trade</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Risk-Reward Ratio</h6>
+                                <p class="mb-0">Calculating potential profits vs losses</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Stop Losses</h6>
+                                <p class="mb-0">Protecting your capital from large losses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intermediate Level -->
+    <section id="intermediate" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center mb-5">
+                    <h2 class="section-title d-inline-block">Intermediate Level</h2>
+                    <p class="lead">Develop practical trading skills and strategies</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="cal_info level-cal_info intermediate">
+                        <div class="cal_info-header text-center">
+                            <i class="bi bi-graph-up me-2"></i> Technical Analysis
+                        </div>
+                        <div class="cal_info-body">
+                            <div class="topic-item">
+                                <h6>Chart Patterns</h6>
+                                <p class="mb-0">Recognizing and trading chart formations</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Technical Indicators</h6>
+                                <p class="mb-0">RSI, MACD, Moving Averages and more</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Support & Resistance</h6>
+                                <p class="mb-0">Identifying key price levels</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="cal_info level-cal_info intermediate">
+                        <div class="cal_info-header text-center">
+                            <i class="bi bi-clipboard-data me-2"></i> Trading Strategies
+                        </div>
+                        <div class="cal_info-body">
+                            <div class="topic-item">
+                                <h6>Swing Trading</h6>
+                                <p class="mb-0">Capturing multi-day price movements</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Day Trading</h6>
+                                <p class="mb-0">Intraday trading strategies</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Position Trading</h6>
+                                <p class="mb-0">Longer-term trading approaches</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="cal_info level-cal_info intermediate">
+                        <div class="cal_info-header text-center">
+                            <i class="bi bi-people me-2"></i> Trading Psychology
+                        </div>
+                        <div class="cal_info-body">
+                            <div class="topic-item">
+                                <h6>Emotional Control</h6>
+                                <p class="mb-0">Managing fear and greed in trading</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Discipline & Patience</h6>
+                                <p class="mb-0">Sticking to your trading plan</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Developing a Trader's Mindset</h6>
+                                <p class="mb-0">Thinking like a professional trader</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Level -->
+    <section id="advanced" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center mb-5">
+                    <h2 class="section-title d-inline-block">Advanced Level</h2>
+                    <p class="lead">Master sophisticated trading techniques and strategies</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="cal_info level-cal_info advanced">
+                        <div class="cal_info-header text-center">
+                            <i class="bi bi-gear me-2"></i> Advanced Strategies
+                        </div>
+                        <div class="cal_info-body">
+                            <div class="topic-item">
+                                <h6>Algorithmic Trading</h6>
+                                <p class="mb-0">Developing and backtesting trading algorithms</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Options Strategies</h6>
+                                <p class="mb-0">Advanced options spreads and techniques</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Quantitative Analysis</h6>
+                                <p class="mb-0">Using mathematical models in trading</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="cal_info level-cal_info advanced">
+                        <div class="cal_info-header text-center">
+                            <i class="bi bi-pie-chart me-2"></i> Portfolio Management
+                        </div>
+                        <div class="cal_info-body">
+                            <div class="topic-item">
+                                <h6>Diversification Strategies</h6>
+                                <p class="mb-0">Building resilient portfolios</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Risk Parity</h6>
+                                <p class="mb-0">Advanced risk management techniques</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Hedging Strategies</h6>
+                                <p class="mb-0">Protecting your portfolio from market downturns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="cal_info level-cal_info advanced">
+                        <div class="cal_info-header text-center">
+                            <i class="bi bi-lightning me-2"></i> Market Microstructure
+                        </div>
+                        <div class="cal_info-body">
+                            <div class="topic-item">
+                                <h6>Order Flow Analysis</h6>
+                                <p class="mb-0">Reading market depth and order books</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>High-Frequency Trading</h6>
+                                <p class="mb-0">Understanding HFT and its impact</p>
+                            </div>
+                            <div class="topic-item">
+                                <h6>Market Making</h6>
+                                <p class="mb-0">How liquidity providers operate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center mb-5">
+                    <h2 class="section-title d-inline-block">Learning Resources</h2>
+                    <p class="lead">Tools and materials to accelerate your trading education</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="cal_info resource-cal_info text-center p-4">
+                        <div class="resource-icon">
+                            <i class="bi bi-journal-text"></i>
+                        </div>
+                        <h5>E-Books & Guides</h5>
+                        <p>Comprehensive trading guides and eBooks for all levels</p>
+                        <a href="#" class="btn btn-outline-primary">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="cal_info resource-cal_info text-center p-4">
+                        <div class="resource-icon">
+                            <i class="bi bi-camera-video"></i>
+                        </div>
+                        <h5>Video Courses</h5>
+                        <p>Step-by-step video tutorials and trading courses</p>
+                        <a ="#" class="btn btn-outline-primary">Coming Soon!</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="cal_info resource-cal_info text-center p-4">
+                        <div class="resource-icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h5>Trading Simulator</h5>
+                        <p>Practice trading with virtual money in real market conditions</p>
+                        <a hr="#" class="btn btn-outline-primary">Coming Soon!</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="cal_info resource-cal_info text-center p-4">
+                        <div class="resource-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h5>Community</h5>
+                        <p>Connect with other traders and share experiences</p>
+                        <a href="#joincommunity" class="btn btn-outline-primary">Join Community</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Ready to Start Your Trading Journey?</h2>
+                    <p class="lead mb-4">Join thousands of successful traders who started with our structured learning path</p>
+                    <a href="#" class="btn btn-light btn-lg">Get Started Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php require "footer.php";?>
+</body>
+</html>

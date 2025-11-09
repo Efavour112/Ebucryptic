@@ -1,0 +1,29 @@
+<!-- Features Section -->
+ <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Why Learn With EbuCryptic?</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-journal-check display-4 text-primary"></i>
+                    </div>
+                    <h4>Structured Learning</h4>
+                    <p>Follow our carefully designed curriculum from beginner to expert level.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-patch-check display-4 text-primary"></i>
+                    </div>
+                    <h4>Expert Content</h4>
+                    <p>Learn from industry professionals with years of experience in cryptocurrency.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-clock-history display-4 text-primary"></i>
+                    </div>
+                    <h4>Self-Paced</h4>
+                    <p>Study at your own pace with lifetime access to all course materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>

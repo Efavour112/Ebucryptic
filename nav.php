@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Forex Trading for Free | EbuCryptic.net</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root{--a:#4a00e0;--b:#8e2de2;--c:#00c6ff;--d:#333;--e:#f8f9fa;--f:#ffffff;--g:#121212;--h:#f8f9fa;--i:#1e1e1e;--j:var(--f);--k:var(--d);--l:var(--h)}
+        [data-theme="light"]{--j:var(--f);--k:var(--d);--l:var(--h)}
+        [data-theme="dark"]{--j:var(--g);--k:var(--e);--l:var(--i)}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--j);color:var(--k);transition:all .3s ease;margin:0}
+        .n1.active{background:rgba(255,255,255,.15)!important;color:#fff!important}
+        .n2{background:#3C4350;box-shadow:0 2px 10px rgba(0,0,0,.1);padding:.5rem 1rem;max-height:70px;position:fixed;top:0;width:100%;transition:top .3s;z-index:999}
+        .n2.m1{top:-100px}
+        .n3{font-weight:100;font-size:1.5rem;display:flex;align-items:center;color:#fff;text-decoration:none;padding:0}
+        .n3 img{height:45px;border-radius:10px;width:60%}
+        .n4{font-weight:500;padding:10px 15px!important;margin:2px 0;border-radius:5px;transition:all .3s;color:#fff;text-align:left}
+        .n4:hover{background:rgba(255,255,255,.15)}
+        .n5{background:rgba(0,0,0,.2);border:none;backdrop-filter:blur(10px);margin:5px 0;min-width:200px}
+        .n6{color:#fff;padding:10px 20px;transition:all .2s}
+        .n6:hover{background:rgba(255,255,255,.2);color:pink}
+        .m2{position:relative;margin:10px 0;display:inline-block}
+        .m3{white-space:nowrap}
+        .m4{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;padding:6px 12px;background:#ffc107;color:#000;border-radius:4px;font-weight:bold;display:none;text-align:center;z-index:1000;white-space:nowrap}
+        .m2:hover .m4{display:block}
+        .n7{border:none;padding:10px 8px;background:0 0;width:40px;height:40px;position:relative}
+        .m5{width:24px;height:24px;position:relative;transition:all .3s ease}
+        .m5 span{display:block;position:absolute;height:2px;width:100%;background:#fff;border-radius:2px;opacity:1;left:0;transform:rotate(0);transition:all .3s ease}
+        .m5 span:nth-child(1){top:6px}
+        .m5 span:nth-child(2){top:11px}
+        .m5 span:nth-child(3){top:16px}
+        .n7[aria-expanded="true"] .m5 span:nth-child(1){top:11px;transform:rotate(135deg)}
+        .n7[aria-expanded="true"] .m5 span:nth-child(2){opacity:0;left:-20px}
+        .n7[aria-expanded="true"] .m5 span:nth-child(3){top:11px;transform:rotate(-135deg)}
+        .m6{background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;padding:5px 10px;border-radius:5px;transition:all .3s}
+        .m6:hover{background:rgba(255,255,255,.1)}
+        @media(max-width:991.98px){
+            .n3 img{height:45px;width:100%}
+            .m7{display:flex!important;justify-content:space-between;align-items:center;width:100%}
+            .n8{background:linear-gradient(135deg,var(--a),var(--b));padding:15px;margin-top:10px;border-radius:0 0 10px 10px;box-shadow:0 5px 15px rgba(0,0,0,.2)}
+            .n8 .n5{position:static;transform:none!important;border-left:3px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);margin:5px 0 10px 15px;width:calc(100% - 15px)}
+            .n9{margin-bottom:15px}
+            .n4{padding:12px 15px!important}
+            .m2{justify-content:flex-start;margin:15px 0 5px 0}
+        }
+        @media(min-width:992px){
+            .m6.m8{display:none!important}
+            .m7,.m9{display:contents}
+            .n4{margin:0 5px}
+            .n5{background:var(--l)}
+            .n6{color:var(--k)}
+            .m2{margin:0 5px}
+            .n3 img{height:45px;width:100%}
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top n2">
+        <div class="container-fluid">
+            <div class="navbar-mobile-header m7">
+                <a class="navbar-brand n3">
+                    <img src="logo/Ebucryptic.png" alt="Logo">
+                </a>
+                <div class="mobile-controls d-flex m9">
+                    <button class="theme-toggle d-lg-none mobile-only m6 m8" id="t1">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
+                    <button class="navbar-toggler n7" type="button" data-bs-toggle="collapse" data-bs-target="#c1" aria-controls="c1" aria-expanded="false" aria-label="Toggle navigation">
+                        <div class="custom-toggler m5">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse n8" id="c1">
+                <ul class="navbar-nav me-auto n9">
+                    <li class="nav-item"><a class="nav-link n4" href="index.php">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle n4" href="#" id="d1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Free Courses</a>
+                        <ul class="dropdown-menu n5" aria-labelledby="d1">
+                            <li><a class="dropdown-item n6" href="crypto.php">Understanding Crypto</a></li>
+                            <li><a class="dropdown-item n6" href="nft.php">NFTs</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item n6" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Coming Soon!">Airdrops</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle n4" href="#" id="d2" role="button" data-bs-toggle="dropdown" aria-expanded="false">TradingMastery</a>
+                        <ul class="dropdown-menu n5" aria-labelledby="d2">
+                            <li><a class="dropdown-item n6" href="trading.php">Beginner Tutorials</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item n6" href="trading.php">Intermediate Tutorials</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item n6" href="trading.php">Advanced Tutorials</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link n4" href="general_quiz.php">Take Quiz</a></li>
+                </ul>
+                <div class="d-flex align-items-center navbar-actions">
+                    <div class="containerl me-3 m2">
+                        <button class="btn btn-outline-light btnsoon m3" data-bs-toggle="tooltip" data-bs-placement="right" title="Coming Soon!">Sign In</button>
+                        <div class="coming m4">Coming Soon!</div>
+                    </div>
+                    <button class="theme-toggle d-none d-lg-flex m6" id="t2">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{"use strict";const a=b=>document.getElementById(b),c=a('t1'),d=a('t2'),e=localStorage.getItem('th')||'light';document.body.setAttribute('data-theme',e);g(e);const f=()=>{const h=document.body.getAttribute('data-theme'),i=h==='light'?'dark':'light';document.body.setAttribute('data-theme',i);localStorage.setItem('th',i);g(i);};c&&c.addEventListener('click',f);d&&d.addEventListener('click',f);function g(j){document.querySelectorAll('.m6 i').forEach(k=>{k.className=j==='light'?'bi bi-moon-fill':'bi bi-sun-fill';});}const l=[...document.querySelectorAll('[data-bs-toggle="tooltip"]')];l.forEach(m=>new bootstrap.Tooltip(m));let n=0;const o=document.querySelector('.n2');window.addEventListener('scroll',()=>{const p=window.pageYOffset||document.documentElement.scrollTop;p>n&&p>100?o.classList.add('m1'):o.classList.remove('m1');n=p<=0?0:p;});const q=document.getElementById('c1'),r=document.querySelectorAll('#c1 .n4:not(.dropdown-toggle)');r.forEach(s=>{s.addEventListener('click',()=>{if(window.innerWidth<992){const t=bootstrap.Collapse.getInstance(q);t&&t.hide();}});});});
+    </script>
+</body>
+</html>

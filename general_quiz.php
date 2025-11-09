@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto and Forex trading Quiz | EbuCryptic.net</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root{--p:#2c3e50;--s:#7f8c8d;--a:#3498db;--l:#f8f9fa;--d:#2c3e50;--g:#27ae60;--r:#e74c3c}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#EDDE3E9;color:#333;line-height:1.6}
+        .q1{max-width:800px;margin:40px auto;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.05);overflow:hidden}
+        .q2{background:var(--p);color:#fff;padding:25px 30px}
+        .q3{padding:30px}
+        .q4{font-size:.9rem;color:var(--s);margin-bottom:10px}
+        .q5{font-size:1.2rem;font-weight:600;margin-bottom:20px;color:var(--d)}
+        .q6{margin-bottom:30px}
+        .q7{padding:15px;margin-bottom:10px;border:1px solid #000;border-radius:8px;cursor:pointer;transition:all .2s}
+        .q7:hover{background:#f8f9fa;border-color:var(--a)}
+        .q7.q8{background:#e1f0fa;border-color:var(--a)}
+        .q7.q9{background:#d4f4dd;border-color:var(--g)}
+        .q7.qa{background:#fadbd8;border-color:var(--r)}
+        .qb{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid #e1e8ed}
+        .qc{height:6px;margin-bottom:20px}
+        .qd{text-align:center;padding:30px}
+        .qe{font-size:3rem;font-weight:700;color:var(--p);margin:20px 0}
+        .qf{padding:5px 12px;border-radius:20px;font-size:.8rem;font-weight:100;margin-right:3px;margin-bottom:8px}
+        .qg{background:#e8f4fd;color:#2980b9}
+        .qh{background:#e8f6f3;color:#16a085}
+        .qi{background:#fef9e7;color:#f39c12}
+        .qj{background:#f4ecf7;color:#8e44ad}
+        .btn{padding:10px 10px!important;border-radius:6px}
+        .btn-primary{background:var(--a);border-color:var(--a)}
+        .btn-outline-primary{color:var(--a);border-color:var(--a)}
+        .btn-outline-primary:hover{background:var(--a);color:#fff}
+        @media(max-width:7658px){.btn{padding:1px 0;font-weight:20px}.q1{margin:5px auto}}
+    </style>
+</head>
+<body>
+    <div class="q1">
+        <div class="q2">
+            <h1 class="h3 mb-0">Trading & Crypto Knowledge Quiz</h1>
+            <p class="mb-0 mt-2">Test your knowledge across multiple financial domainsp</p>
+        </div>
+        <div class="q3">
+            <div class="qc"><div class="progress-bar" role="progressbar" style="width:0%"></div></div>
+            <div id="a1">
+                <div class="q4">Question <span id="b1">1</span> of 15</div>
+                <div class="q5" id="b2">Who created Bitcoin under the pseudonym Satoshi Nakamoto?</div>
+                <div class="q6" id="b3">
+                    <div class="q7" data-value="0"><span class="me-2">A.</span><span>Vitalik Buterin</span></div>
+                    <div class="q7" data-value="1"><span class="me-2">B.</span><span>Unknown person or group</span></div>
+                    <div class="q7" data-value="2"><span class="me-2">C.</span><span>Elon Musk</span></div>
+                    <div class="q7" data-value="3"><span class="me-2">D.</span><span>Changpeng Zhao</span></div>
+                </div>
+                <div class="qb">
+                    <div id="b4"><span class="qf qg">Crypto</span></div>
+                    <div>
+                        <button class="btn btn-outline-primary me-2" id="c1" disabled><i class="bi bi-arrow-left me-1"></i> Previous</button>
+                        <button class="btn btn-primary" id="c2">Next <i class="bi bi-arrow-right ms-1"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="a2" class="qd" style="display:none">
+                <h2 class="h4 mb-3">Quiz Complete!</h2>
+                <div class="qe" id="d1">0/15</div>
+                <p class="mb-4" id="d2">Your results will appear here</p>
+                <button class="btn btn-primary" id="e1"><i class="bi bi-arrow-repeat me-1"></i> Take Quiz Again</button>
+                <a href="index.php">Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{const z=[{c:"crypto",q:"Who created Bitcoin under the pseudonym Satoshi Nakamoto?",o:["Vitalik Buterin","Unknown person or group","Elon Musk","Changpeng Zhao"],a:1},{c:"forex",q:"What does \"Forex\" stand for?",o:["Foreign Expansion","Foreign Exchange","Foreign Execution","Foreign Experience"],a:1},{c:"trading",q:"What is the purpose of a \"stop-loss\" order?",o:["To automatically take profits at a target price","To limit potential losses by closing a position at a predetermined price","To execute a trade only during specific market hours","To guarantee a specific entry price for a trade"],a:1},{c:"nft",q:"What does NFT stand for?",o:["New Financial Technology","Non-Fungible Token","Network File Transfer","National Fund Transfer"],a:1},{c:"crypto",q:"What is the maximum supply of Bitcoin that will ever exist?",o:["10 million","50 million","21 million","Unlimited supply"],a:2},{c:"forex",q:"Which of these is a major currency pair?",o:["EUR/USD","BTC/ETH","AAPL/GOOG","OIL/GOLD"],a:0},{c:"trading",q:"What does \"leverage\" allow traders to do?",o:["Trade without any risk","Control larger positions with less capital","Avoid paying taxes on profits","Trade in multiple markets simultaneously"],a:1},{c:"nft",q:"Which blockchain is most commonly associated with NFTs?",o:["Bitcoin","Ethereum","Ripple","Litecoin"],a:1},{c:"crypto",q:"What consensus mechanism does Ethereum currently use?",o:["Proof of Work","Proof of Stake","Proof of Authority","Delegated Proof of Stake"],a:1},{c:"forex",q:"What is the typical trading schedule for the Forex market?",o:["9 AM - 5 PM, Monday to Friday","24 hours a day, 5 days a week","24/7, all year round","Only during business hours in New York"],a:1},{c:"trading",q:"What is \"diversification\" in portfolio management?",o:["Putting all your money in one investment","Spreading investments across different assets to reduce risk","Trading only during volatile market periods","Focusing exclusively on high-risk, high-reward investments"],a:1},{c:"nft",q:"What is \"minting\" in the context of NFTs?",o:["Creating a physical version of a digital asset","The process of creating a new NFT on the blockchain","Buying an NFT at a discounted price","Selling an NFT on a secondary market"],a:1},{c:"crypto",q:"What is the primary purpose of a cryptocurrency wallet?",o:["To mine new coins","To store private keys and interact with blockchains","To trade cryptocurrencies on exchanges","To generate new cryptocurrency addresses"],a:1},{c:"forex",q:"Which factor does NOT typically influence Forex prices?",o:["Interest rates","Political stability","Weather patterns","Economic indicators"],a:2},{c:"trading",q:"What is \"arbitrage\" in trading?",o:["Buying and holding assets for the long term","Exploiting price differences of the same asset in different markets","Trading based on technical analysis only","Investing only in government bonds"],a:1}];
+        const A=document.getElementById("a1"),B=document.getElementById("a2"),C=document.getElementById("b2"),D=document.getElementById("b3"),E=document.getElementById("b1"),F=document.querySelector(".progress-bar"),G=document.getElementById("c2"),H=document.getElementById("c1"),I=document.getElementById("e1"),J=document.getElementById("d1"),K=document.getElementById("d2"),L=document.getElementById("b4");let i=0,s=0,u=new Array(z.length).fill(null);function M(n){const q=z[n];C.textContent=q.q;E.textContent=n+1;const p=((n+1)/z.length)*100;F.style.width=p+"%";L.innerHTML="";const b=document.createElement("span");switch(q.c){case"crypto":b.className="qf qg";b.textContent="Crypto";break;case"forex":b.className="qf qh";b.textContent="Forex";break;case"trading":b.className="qf qi";b.textContent="Trading";break;case"nft":b.className="qf qj";b.textContent="NFT";break}L.appendChild(b);D.innerHTML="";q.o.forEach((o,x)=>{const v=document.createElement("div");v.className="q7";u[n]===x&&v.classList.add("q8");v.setAttribute("data-value",x);v.innerHTML=`<span class="me-2">${String.fromCharCode(65+x)}.</span><span>${o}</span>`;D.appendChild(v)});H.disabled=n===0;G.textContent=n===z.length-1?"Finish Quiz":"Next"}M(i);D.addEventListener("click",e=>{const t=e.target.closest(".q7");if(!t)return;document.querySelectorAll(".q7").forEach(o=>o.classList.remove("q8"));t.classList.add("q8");u[i]=parseInt(t.getAttribute("data-value"))});G.addEventListener("click",()=>{if(u[i]===null){alert("Please select an answer before proceeding.");return}u[i]===z[i].a&&s++;i<z.length-1?(i++,M(i)):N()});H.addEventListener("click",()=>{if(i>0){i--;M(i)}});I.addEventListener("click",()=>{i=0;s=0;u=new Array(z.length).fill(null);B.style.display="none";A.style.display="block";M(i)});function N(){A.style.display="none";B.style.display="block";J.textContent=s+"/"+z.length;s>=13?K.textContent="Excellent! You have advanced knowledge of trading and crypto concepts.":s>=10?K.textContent="Good job! You have solid understanding of trading and crypto concepts.":s>=7?K.textContent="Not bad! You have basic knowledge but could benefit from more study.":K.textContent="Keep learning! Review the concepts and try again."}});
+    </script>
+</body>
+</html>

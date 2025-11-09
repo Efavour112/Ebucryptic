@@ -1,0 +1,177 @@
+
+        .hero-section {
+            background: linear-gradient(rgba(26, 35, 50, 0.85), rgba(26, 35, 50, 0.9)), url('https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .card {
+            border: none;
+            background:none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            height:90%;
+        }
+
+        .card-header {
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        
+        .course-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .progress-bar {
+            background-color: var(--accent);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1e3a6e;
+        }
+        
+        
+        .quiz-container {
+            /* background-color: white; */
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .quiz-question {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-option {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .quiz-option:hover {
+            background-color: #f0f5ff;
+            border-color: var(--primary);
+        }
+        
+        .quiz-option.selected {
+            background-color: #e8f4fd;
+            border-color: var(--primary);
+        }
+        
+        .quiz-option.correct {
+            background-color: greenyellow;
+            /* border-color: var(--accent); */
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .badge-level {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .tutorial-content {
+            line-height: 1.7;
+        }
+        .tut{
+            font-family:sans-serif;
+        }
+
+        .menu-container {
+        background: linear-gradient(to right, #1e3c72, #2a5298); Blue gradient
+        padding: 15px 0px;
+        position: fixed;
+        border-top:1px solid #fff;
+        width:100%;
+        }
+
+        .menu-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        }
+
+        .menu-list li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+        }
+
+        .menu-list li a:hover {
+            background:pink;
+            color: #fff; */
+        }
+
+        @media (max-width: 600px) {
+            .menu-container {
+            display: flex;
+            font-size:12px;
+            padding:10px 0px;
+        }
+        }
+        
+        
+        @media (max-width: 768px) {
+             .navbar{
+                max-height:50vh;
+            }
+            .hero-section {
+                padding: 60px 0;
+                text-align: center;
+            }
+            
+            .display-4 {
+                font-size: 2.2rem;
+            }
+            .card-header{
+                padding: 0px 10px;
+            }
+            .dropdown-menu {
+                border: none;
+                box-shadow: none;
+                background-color: transparent;
+                padding-left: 20px;
+            }
+            .dropdown-item {
+                padding: 8px 15px;
+            }
+            
+    }
+    

@@ -1,0 +1,51 @@
+<style>
+  .menu-container {
+  background: linear-gradient(to right, #1e3c72, #2a5298); /* Blue gradient */
+  padding: 5px;
+  position: fixed;
+  border-top:1px solid #fff;
+  width:100%;
+}
+
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 3rem 1rem;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.menu-list li a:hover {
+  /* background-color: #ffd700; /* Gold hover */
+  color: #000; */
+}
+
+@media (max-width: 600px) {
+    .menu-container {
+    display: flex;
+    font-size:5px;
+}
+ 
+}
+
+</style>
+
+<div class="menu-container">
+        <ul class="menu-list">
+            <li><a href="#what-is-nft">What is NFT?</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#platforms">Platforms</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </div>

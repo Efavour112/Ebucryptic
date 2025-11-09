@@ -1,0 +1,329 @@
+<div class="col-lg-3">
+    <div class="quiz-container sticky-top" style="top: 100px;">
+        <h4 class="mb-4">Quiz: Test Your Forex Knowledge</h4>
+
+        <div id="quiz-content">
+            <div class="quiz-question" id="question-text">
+                What does "Forex" stand for?
+            </div>
+
+            <div class="progress mt-3 mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 20%">1 of 5</div>
+            </div>
+
+            <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Foreign Expansion</div>
+                <div class="quiz-option" data-correct="true">Foreign Exchange</div>
+                <div class="quiz-option" data-correct="false">Foreign Execution</div>
+                <div class="quiz-option" data-correct="false">Foreign Experience</div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button class="btn btn-outline-secondary" id="prev-btn" disabled>
+                    <i class="bi bi-arrow-left me-1"></i> Previous
+                </button>
+                <button class="btn btn-primary" id="next-btn">
+                    Next <i class="bi bi-arrow-right ms-1"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="quiz-results" class="text-center" style="display: none;">
+            <h4 class="mb-3">Quiz Complete!</h4>
+            <div class="display-4 text-primary mb-3" id="final-score">4/5</div>
+            <p class="mb-4" id="result-message">Excellent! You're ready to explore the forex world.</p>
+            <button class="btn btn-outline-primary" id="restart-btn">Restart Quiz</button>
+        </div>
+    </div>
+</div>
+
+<!-- Custom JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Quiz functionality
+        const quizOptions = document.querySelectorAll('.quiz-option');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const questionText = document.getElementById('question-text');
+        const quizContent = document.getElementById('quiz-content');
+        const quizResults = document.getElementById('quiz-results');
+        const finalScore = document.getElementById('final-score');
+        const resultMessage = document.getElementById('result-message');
+        const restartBtn = document.getElementById('restart-btn');
+        
+        let currentQuestion = 0;
+        const totalQuestions = 5;
+        let selectedOption = null;
+        let score = 0;
+        let userAnswers = new Array(totalQuestions).fill(null);
+        
+        // Forex questions data
+        const questions = [
+            {
+                question: "What does 'Forex' stand for?",
+                options: [
+                    { text: "Foreign Expansion", correct: false },
+                    { text: "Foreign Exchange", correct: true },
+                    { text: "Foreign Execution", correct: false },
+                    { text: "Foreign Experience", correct: false }
+                ]
+            },
+            {
+                question: "Which of these is a major currency pair in Forex trading?",
+                options: [
+                    { text: "EUR/USD", correct: true },
+                    { text: "BTC/ETH", correct: false },
+                    { text: "AAPL/GOOG", correct: false },
+                    { text: "OIL/GOLD", correct: false }
+                ]
+            },
+            {
+                question: "What is the typical trading schedule for the Forex market?",
+                options: [
+                    { text: "9 AM - 5 PM, Monday to Friday", correct: false },
+                    { text: "24 hours a day, 5 days a week", correct: true },
+                    { text: "24/7, all year round", correct: false },
+                    { text: "Only during business hours in New York", correct: false }
+                ]
+            },
+            {
+                question: "Which factor does NOT typically influence Forex prices?",
+                options: [
+                    { text: "Interest rates", correct: false },
+                    { text: "Political stability", correct: false },
+                    { text: "Weather patterns", correct: true },
+                    { text: "Economic indicators", correct: false }
+                ]
+            },
+            {
+                question: "What is a key risk associated with Forex trading?",
+                options: [
+                    { text: "Leverage amplifying losses", correct: true },
+                    { text: "Currency becoming physically damaged", correct: false },
+                    { text: "Currencies expiring", correct: false },
+                    { text: "Government seizing trading accounts", correct: false }
+                ]
+            }
+        ];
+        
+        // Initialize the first question
+        loadQuestion(currentQuestion);
+        
+        // Add event listeners to quiz options
+        quizOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                quizOptions.forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                selectedOption = this;
+            });
+        });
+        
+        // Next button functionality
+        nextBtn.addEventListener('click', function() {
+            if (!selectedOption) {
+                alert('Please select an answer before proceeding.');
+                return;
+            }
+            
+            // Store user's answer
+            userAnswers[currentQuestion] = selectedOption.getAttribute('data-correct') === 'true';
+            
+            // Check if answer is correct
+            const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
+            
+            if (isCorrect) {
+                score++;
+                selectedOption.classList.add('correct');
+            } else {
+                selectedOption.classList.add('incorrect');
+                // Highlight correct answer
+                quizOptions.forEach(option => {
+                    if (option.getAttribute('data-correct') === 'true') {
+                        option.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Disable buttons during transition
+            nextBtn.disabled = true;
+            prevBtn.disabled = true;
+            
+            // Wait a moment before moving to next question
+            setTimeout(() => {
+                currentQuestion++;
+                
+                if (currentQuestion < totalQuestions) {
+                    loadQuestion(currentQuestion);
+                    
+                    // Update progress bar
+                    const progressBar = document.querySelector('.progress-bar');
+                    const progressPercent = ((currentQuestion + 1) / totalQuestions) * 100;
+                    progressBar.style.width = `${progressPercent}%`;
+                    progressBar.textContent = `${currentQuestion + 1} of ${totalQuestions}`;
+                    
+                    // Enable/disable navigation buttons
+                    prevBtn.disabled = currentQuestion === 0;
+                    
+                    if (currentQuestion === totalQuestions - 1) {
+                        nextBtn.textContent = 'Finish Quiz';
+                    }
+                } else {
+                    // Quiz finished, show results
+                    showResults();
+                }
+                
+                // Re-enable buttons
+                nextBtn.disabled = false;
+                prevBtn.disabled = currentQuestion === 0;
+            }, 1500);
+        });
+        
+        // Previous button functionality
+        prevBtn.addEventListener('click', function() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion(currentQuestion);
+                
+                // Update progress bar
+                const progressBar = document.querySelector('.progress-bar');
+                const progressPercent = ((currentQuestion + 1) / totalQuestions) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+                progressBar.textContent = `${currentQuestion + 1} of ${totalQuestions}`;
+                
+                // Enable/disable navigation buttons
+                prevBtn.disabled = currentQuestion === 0;
+                nextBtn.textContent = currentQuestion === totalQuestions - 1 ? 'Finish Quiz' : 'Next';
+                
+                // Restore previous selection if exists
+                if (userAnswers[currentQuestion] !== null) {
+                    const previousAnswer = userAnswers[currentQuestion];
+                    quizOptions.forEach(option => {
+                        if (option.getAttribute('data-correct') === 'true' && previousAnswer) {
+                            option.classList.add('selected');
+                            selectedOption = option;
+                        }
+                    });
+                }
+            }
+        });
+        
+        // Restart button functionality
+        restartBtn.addEventListener('click', function() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(totalQuestions).fill(null);
+            selectedOption = null;
+            
+            // Reset UI
+            quizContent.style.display = 'block';
+            quizResults.style.display = 'none';
+            
+            // Reset progress bar
+            const progressBar = document.querySelector('.progress-bar');
+            progressBar.style.width = '20%';
+            progressBar.textContent = '1 of 5';
+            
+            // Reset buttons
+            prevBtn.disabled = true;
+            nextBtn.textContent = 'Next';
+            nextBtn.disabled = false;
+            
+            // Load first question
+            loadQuestion(currentQuestion);
+        });
+        
+        // Function to load a question
+        function loadQuestion(questionIndex) {
+            const questionData = questions[questionIndex];
+            questionText.textContent = questionData.question;
+            
+            // Update options
+            quizOptions.forEach((option, index) => {
+                option.textContent = questionData.options[index].text;
+                option.setAttribute('data-correct', questionData.options[index].correct);
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            // Reset selected option
+            selectedOption = null;
+        }
+        
+        // Function to show results
+        function showResults() {
+            quizContent.style.display = 'none';
+            quizResults.style.display = 'block';
+            
+            // Update score in results
+            finalScore.textContent = `${score}/${totalQuestions}`;
+            
+            // Update result message based on score
+            if (score === totalQuestions) {
+                resultMessage.textContent = "Perfect! You're a Forex trading expert!";
+            } else if (score >= totalQuestions * 0.7) {
+                resultMessage.textContent = "Great job! You have solid Forex knowledge.";
+            } else if (score >= totalQuestions * 0.5) {
+                resultMessage.textContent = "Good effort! Review the material and try again.";
+            } else {
+                resultMessage.textContent = "Keep learning! Review the Forex basics and try again.";
+            }
+        }
+    });
+</script>
+
+<style>
+.quiz-container {
+    /* background: #f8f9fa; */
+    border-radius: 10px;
+    border: 1px solid #f8f9fa;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.quiz-question {
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.quiz-option {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-option:hover {
+    background: pink;
+    border-color: #007bff;
+}
+
+.quiz-option.selected {
+    border-color: #f8f9fa;
+    /* background: #e7f3ff; */
+}
+
+.quiz-option.correct {
+    border-color: red;
+    /* background: #d4edda; */
+}
+
+.quiz-option.incorrect {
+    border-color: #dc3545;
+    background: #f8d7da;
+}
+
+.progress {
+    height: 8px;
+}
+
+.progress-bar {
+    transition: width 0.5s ease;
+}
+</style>
