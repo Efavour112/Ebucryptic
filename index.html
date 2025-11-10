@@ -72,15 +72,8 @@
 </style>
 <body>
     <body data-theme="light">
+    <div id="navbar"></div>
         
-   <script>
-    fetch('nav.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar').innerHTML = data;
-        });
-    </script>
-
      <div class="menu-container">
         <ul class="menu-list">
             <li><a href="#candlestick">Candlesticks</a></li>
@@ -312,8 +305,20 @@ Require "forex_quiz.html";
 require "features_footer.html";
 require "footer.html";
 ?>
+<script>
+        // Load navigation
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar').innerHTML = html;
+            })
+            .catch(err => {
+                console.error('Failed to load navigation:', err);
+            });
+    </script>
 </body>
 
 </html>
+
 
 
