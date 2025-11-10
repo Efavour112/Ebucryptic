@@ -77,12 +77,12 @@
             </div>
             <div class="collapse navbar-collapse n8" id="c1">
                 <ul class="navbar-nav me-auto n9">
-                    <li class="nav-item"><a class="nav-link n4" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link n4" href="index.html">Home</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle n4" href="#" id="d1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Free Courses</a>
                         <ul class="dropdown-menu n5" aria-labelledby="d1">
-                            <li><a class="dropdown-item n6" href="crypto.php">Understanding Crypto</a></li>
-                            <li><a class="dropdown-item n6" href="nft.php">NFTs</a></li>
+                            <li><a class="dropdown-item n6" href="crypto.html">Understanding Crypto</a></li>
+                            <li><a class="dropdown-item n6" href="nft.html">NFTs</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item n6" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Coming Soon!">Airdrops</a></li>
                         </ul>
@@ -90,14 +90,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle n4" href="#" id="d2" role="button" data-bs-toggle="dropdown" aria-expanded="false">TradingMastery</a>
                         <ul class="dropdown-menu n5" aria-labelledby="d2">
-                            <li><a class="dropdown-item n6" href="trading.php">Beginner Tutorials</a></li>
+                            <li><a class="dropdown-item n6" href="trading.html">Beginner Tutorials</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item n6" href="trading.php">Intermediate Tutorials</a></li>
+                            <li><a class="dropdown-item n6" href="trading.html">Intermediate Tutorials</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item n6" href="trading.php">Advanced Tutorials</a></li>
+                            <li><a class="dropdown-item n6" href="trading.html">Advanced Tutorials</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link n4" href="general_quiz.php">Take Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link n4" href="general_quiz.html">Take Quiz</a></li>
                 </ul>
                 <div class="d-flex align-items-center navbar-actions">
                     <div class="containerl me-3 m2">
@@ -117,4 +117,5 @@
         document.addEventListener('DOMContentLoaded',()=>{"use strict";const a=b=>document.getElementById(b),c=a('t1'),d=a('t2'),e=localStorage.getItem('th')||'light';document.body.setAttribute('data-theme',e);g(e);const f=()=>{const h=document.body.getAttribute('data-theme'),i=h==='light'?'dark':'light';document.body.setAttribute('data-theme',i);localStorage.setItem('th',i);g(i);};c&&c.addEventListener('click',f);d&&d.addEventListener('click',f);function g(j){document.querySelectorAll('.m6 i').forEach(k=>{k.className=j==='light'?'bi bi-moon-fill':'bi bi-sun-fill';});}const l=[...document.querySelectorAll('[data-bs-toggle="tooltip"]')];l.forEach(m=>new bootstrap.Tooltip(m));let n=0;const o=document.querySelector('.n2');window.addEventListener('scroll',()=>{const p=window.pageYOffset||document.documentElement.scrollTop;p>n&&p>100?o.classList.add('m1'):o.classList.remove('m1');n=p<=0?0:p;});const q=document.getElementById('c1'),r=document.querySelectorAll('#c1 .n4:not(.dropdown-toggle)');r.forEach(s=>{s.addEventListener('click',()=>{if(window.innerWidth<992){const t=bootstrap.Collapse.getInstance(q);t&&t.hide();}});});});
     </script>
 </body>
+
 </html>
