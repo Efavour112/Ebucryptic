@@ -72,9 +72,14 @@
 </style>
 <body>
     <body data-theme="light">
-    <?php 
-    require "nav.html";
-    ?>
+        
+   <script>
+    fetch('nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+        });
+    </script>
 
      <div class="menu-container">
         <ul class="menu-list">
@@ -310,4 +315,5 @@ require "footer.html";
 </body>
 
 </html>
+
 
