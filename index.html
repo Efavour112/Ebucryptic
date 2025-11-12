@@ -299,13 +299,11 @@
                     </ul>
                 </div>
             </div>
+                <div id="fxqquiz"></div>
         </div>
-            <div id="fxqquiz"></div>
-<?php
-Require "forex_quiz.html";
-require "features_footer.html";
-require "footer.html";
-?>
+         <div id="ffooter"></div>
+         <div id="mfooter"></div>
+            
 <script>
         // Load navigation
         fetch('nav.html')
@@ -317,7 +315,7 @@ require "footer.html";
                 console.error('Failed to load navigation:', err);
             });
 
-    // Forex qiuz
+    // Load Forex qiuz
          fetch('forex_quiz.html')
             .then(response => response.text())
             .then(html => {
@@ -327,10 +325,30 @@ require "footer.html";
                 console.error('Failed to load navigation:', err);
             });
     
+     // Load Fffooter
+         fetch('features_footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('ffooter').innerHTML = html;
+            })
+            .catch(err => {
+                console.error('Failed to load navigation:', err);
+            });
+     // load footer
+         fetch('footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('mfooter').innerHTML = html;
+            })
+            .catch(err => {
+                console.error('Failed to load navigation:', err);
+            });
+    
     </script>
 </body>
 
 </html>
+
 
 
 
