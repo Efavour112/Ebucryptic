@@ -438,12 +438,16 @@
     <div id="ffooter"></div>
     <div id="mfooter"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         // Load navigation and other components
         fetch('nav.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('navbar').innerHTML = html;
+                // Re-initialize Bootstrap components after loading navbar
+                initializeBootstrapComponents();
             })
             .catch(err => {
                 console.error('Failed to load navigation:', err);
@@ -467,9 +471,73 @@
                 console.error('Failed to load footer:', err);
             });
 
-        // Quiz functionality - Moved here to ensure it loads properly
+        // Function to initialize Bootstrap components
+        function initializeBootstrapComponents() {
+            // Initialize dropdowns
+            const dropdownElements = document.querySelectorAll('.dropdown-toggle');
+            dropdownElements.forEach(dropdown => {
+                new bootstrap.Dropdown(dropdown);
+            });
+
+            // Initialize tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Initialize navbar collapse
+            const navbarCollapse = document.getElementById('c1');
+            if (navbarCollapse) {
+                new bootstrap.Collapse(navbarCollapse, { toggle: false });
+            }
+
+            // Add theme toggle functionality
+            const themeToggles = document.querySelectorAll('.theme-toggle');
+            themeToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const currentTheme = document.body.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                    document.body.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('th', newTheme);
+                    
+                    // Update icons
+                    document.querySelectorAll('.theme-toggle i').forEach(icon => {
+                        icon.className = newTheme === 'light' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+                    });
+                });
+            });
+
+            // Navbar scroll behavior
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.n2');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        navbar.classList.add('m1');
+                    } else {
+                        navbar.classList.remove('m1');
+                    }
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                });
+            }
+
+            // Mobile menu close on link click
+            const navLinks = document.querySelectorAll('#c1 .n4:not(.dropdown-toggle)');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 992) {
+                        const navbarCollapseInstance = bootstrap.Collapse.getInstance(document.getElementById('c1'));
+                        if (navbarCollapseInstance) {
+                            navbarCollapseInstance.hide();
+                        }
+                    }
+                });
+            });
+        }
+
+        // Quiz functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Quiz functionality
             const quizOptions = document.querySelectorAll('.quiz-option');
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
@@ -486,7 +554,6 @@
             let score = 0;
             let userAnswers = new Array(totalQuestions).fill(null);
             
-            // Forex questions data
             const questions = [
                 {
                     question: "What does 'Forex' stand for?",
@@ -535,34 +602,25 @@
                 }
             ];
             
-            // Initialize the first question
             loadQuestion(currentQuestion);
             
-            // Add event listeners to quiz options
             quizOptions.forEach(option => {
                 option.addEventListener('click', function() {
-                    // Remove selected class from all options
                     quizOptions.forEach(opt => {
                         opt.classList.remove('selected');
                     });
-                    
-                    // Add selected class to clicked option
                     this.classList.add('selected');
                     selectedOption = this;
                 });
             });
             
-            // Next button functionality
             nextBtn.addEventListener('click', function() {
                 if (!selectedOption) {
                     alert('Please select an answer before proceeding.');
                     return;
                 }
                 
-                // Store user's answer
                 userAnswers[currentQuestion] = selectedOption.getAttribute('data-correct') === 'true';
-                
-                // Check if answer is correct
                 const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
                 
                 if (isCorrect) {
@@ -570,7 +628,6 @@
                     selectedOption.classList.add('correct');
                 } else {
                     selectedOption.classList.add('incorrect');
-                    // Highlight correct answer
                     quizOptions.forEach(option => {
                         if (option.getAttribute('data-correct') === 'true') {
                             option.classList.add('correct');
@@ -578,57 +635,43 @@
                     });
                 }
                 
-                // Disable buttons during transition
                 nextBtn.disabled = true;
                 prevBtn.disabled = true;
                 
-                // Wait a moment before moving to next question
                 setTimeout(() => {
                     currentQuestion++;
                     
                     if (currentQuestion < totalQuestions) {
                         loadQuestion(currentQuestion);
-                        
-                        // Update progress bar
                         const progressBar = document.querySelector('.progress-bar');
                         const progressPercent = ((currentQuestion + 1) / totalQuestions) * 100;
                         progressBar.style.width = `${progressPercent}%`;
                         progressBar.textContent = `${currentQuestion + 1} of ${totalQuestions}`;
-                        
-                        // Enable/disable navigation buttons
                         prevBtn.disabled = currentQuestion === 0;
                         
                         if (currentQuestion === totalQuestions - 1) {
                             nextBtn.textContent = 'Finish Quiz';
                         }
                     } else {
-                        // Quiz finished, show results
                         showResults();
                     }
                     
-                    // Re-enable buttons
                     nextBtn.disabled = false;
                     prevBtn.disabled = currentQuestion === 0;
                 }, 1500);
             });
             
-            // Previous button functionality
             prevBtn.addEventListener('click', function() {
                 if (currentQuestion > 0) {
                     currentQuestion--;
                     loadQuestion(currentQuestion);
-                    
-                    // Update progress bar
                     const progressBar = document.querySelector('.progress-bar');
                     const progressPercent = ((currentQuestion + 1) / totalQuestions) * 100;
                     progressBar.style.width = `${progressPercent}%`;
                     progressBar.textContent = `${currentQuestion + 1} of ${totalQuestions}`;
-                    
-                    // Enable/disable navigation buttons
                     prevBtn.disabled = currentQuestion === 0;
                     nextBtn.textContent = currentQuestion === totalQuestions - 1 ? 'Finish Quiz' : 'Next';
                     
-                    // Restore previous selection if exists
                     if (userAnswers[currentQuestion] !== null) {
                         const previousAnswer = userAnswers[currentQuestion];
                         quizOptions.forEach(option => {
@@ -641,56 +684,37 @@
                 }
             });
             
-            // Restart button functionality
             restartBtn.addEventListener('click', function() {
                 currentQuestion = 0;
                 score = 0;
                 userAnswers = new Array(totalQuestions).fill(null);
                 selectedOption = null;
-                
-                // Reset UI
                 quizContent.style.display = 'block';
                 quizResults.style.display = 'none';
-                
-                // Reset progress bar
                 const progressBar = document.querySelector('.progress-bar');
                 progressBar.style.width = '20%';
                 progressBar.textContent = '1 of 5';
-                
-                // Reset buttons
                 prevBtn.disabled = true;
                 nextBtn.textContent = 'Next';
                 nextBtn.disabled = false;
-                
-                // Load first question
                 loadQuestion(currentQuestion);
             });
             
-            // Function to load a question
             function loadQuestion(questionIndex) {
                 const questionData = questions[questionIndex];
                 questionText.textContent = questionData.question;
-                
-                // Update options
                 quizOptions.forEach((option, index) => {
                     option.textContent = questionData.options[index].text;
                     option.setAttribute('data-correct', questionData.options[index].correct);
                     option.classList.remove('selected', 'correct', 'incorrect');
                 });
-                
-                // Reset selected option
                 selectedOption = null;
             }
             
-            // Function to show results
             function showResults() {
                 quizContent.style.display = 'none';
                 quizResults.style.display = 'block';
-                
-                // Update score in results
                 finalScore.textContent = `${score}/${totalQuestions}`;
-                
-                // Update result message based on score
                 if (score === totalQuestions) {
                     resultMessage.textContent = "Perfect! You're a Forex trading expert!";
                 } else if (score >= totalQuestions * 0.7) {
@@ -705,3 +729,5 @@
     </script>
 </body>
 </html>
+
+   
